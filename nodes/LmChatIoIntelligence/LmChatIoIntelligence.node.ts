@@ -7,8 +7,7 @@ import {
 	type ILoadOptionsFunctions,
 	type INodePropertyOptions,
 } from 'n8n-workflow';
-// eslint-disable-next-line @n8n/community-nodes/no-restricted-imports
-import { ChatOpenAI } from '@langchain/openai';
+import { supplyModel, type OpenAiModel } from '@n8n/ai-node-sdk';
 
 export class LmChatIoIntelligence implements INodeType {
 	description: INodeTypeDescription = {
@@ -165,22 +164,19 @@ export class LmChatIoIntelligence implements INodeType {
 			topP?: number;
 		};
 
-		const model = new ChatOpenAI({
-			openAIApiKey: credentials.apiKey as string,
-			configuration: {
-				baseURL: credentials.baseUrl as string,
-			},
-			modelName,
+		const modelConfig: OpenAiModel = {
+			type: 'openai',
+			baseUrl: credentials.baseUrl as string,
+			apiKey: credentials.apiKey as string,
+			model: modelName,
 			temperature: options.temperature ?? 0.7,
 			maxTokens: options.maxTokens === -1 ? undefined : options.maxTokens,
 			topP: options.topP,
 			frequencyPenalty: options.frequencyPenalty,
 			presencePenalty: options.presencePenalty,
 			timeout: options.timeout,
-		});
-
-		return {
-			response: model,
 		};
+
+		return supplyModel(this, modelConfig);
 	}
 }
