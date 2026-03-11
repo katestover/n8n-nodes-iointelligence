@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-iointelligence",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "n8n community node for IO Intelligence - use io.net's inference API as an AI model provider in n8n workflows",
 	"keywords": [
 		"n8n-community-node-package",
@@ -21,7 +21,8 @@
 		"url": "https://github.com/katestover/n8n-nodes-iointelligence/issues"
 	},
 	"author": {
-		"name": "katestover"
+		"name": "katestover",
+		"email": "kate.stover13@gmail.com"
 	},
 	"main": "index.js",
 	"n8n": {
