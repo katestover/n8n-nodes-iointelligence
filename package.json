@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-iointelligence",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "n8n community node for IO Intelligence - use io.net's inference API as an AI model provider in n8n workflows",
 	"keywords": [
 		"n8n-community-node-package",
@@ -40,8 +40,7 @@
 		"dev": "n8n-node dev",
 		"lint": "n8n-node lint",
 		"lint:fix": "n8n-node lint --fix",
-		"release": "n8n-node release",
-		"prepublishOnly": "n8n-node prerelease"
+		"release": "n8n-node release"
 	},
 	"files": [
 		"dist"
