@@ -1,0 +1,23 @@
+{
+	"node": "n8n-nodes-base.lmChatIoIntelligence",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["AI"],
+	"subcategories": {
+		"AI": ["Language Models", "Root Nodes"],
+		"Language Models": ["Chat Models (Recommended)"]
+	},
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/katestover/n8n-nodes-iointelligence#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/katestover/n8n-nodes-iointelligence#readme"
+			}
+		]
+	},
+	"alias": ["io intelligence", "io.net", "llm", "chat", "ai model", "inference"]
+}

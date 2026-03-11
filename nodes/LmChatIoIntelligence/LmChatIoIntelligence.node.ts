@@ -7,6 +7,7 @@ import {
 	type ILoadOptionsFunctions,
 	type INodePropertyOptions,
 } from 'n8n-workflow';
+// eslint-disable-next-line @n8n/community-nodes/no-restricted-imports
 import { ChatOpenAI } from '@langchain/openai';
 
 export class LmChatIoIntelligence implements INodeType {
@@ -45,7 +46,7 @@ export class LmChatIoIntelligence implements INodeType {
 		],
 		properties: [
 			{
-				displayName: 'Model',
+				displayName: 'Model Name or ID',
 				name: 'model',
 				type: 'options',
 				typeOptions: {
@@ -53,7 +54,7 @@ export class LmChatIoIntelligence implements INodeType {
 				},
 				default: 'meta-llama/Llama-3.3-70B-Instruct',
 				required: true,
-				description: 'The model to use for chat completions',
+				description: 'The model to use for chat completions. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 			},
 			{
 				displayName: 'Options',
@@ -123,16 +124,16 @@ export class LmChatIoIntelligence implements INodeType {
 			async getModels(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				const credentials = await this.getCredentials('ioIntelligenceApi');
 				const baseUrl = credentials.baseUrl as string;
-				const apiKey = credentials.apiKey as string;
 
-				const response = await this.helpers.httpRequest({
-					method: 'GET',
-					url: `${baseUrl}/models`,
-					headers: {
-						Authorization: `Bearer ${apiKey}`,
+				const response = await this.helpers.httpRequestWithAuthentication.call(
+					this,
+					'ioIntelligenceApi',
+					{
+						method: 'GET',
+						url: `${baseUrl}/models`,
+						json: true,
 					},
-					json: true,
-				});
+				);
 
 				const models: INodePropertyOptions[] = [];
 

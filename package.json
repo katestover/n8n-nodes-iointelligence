@@ -1,59 +1,63 @@
 {
-  "name": "n8n-nodes-iointelligence",
-  "version": "0.1.0",
-  "description": "n8n community node for IO Intelligence — use io.net's inference API as an AI model provider in n8n workflows",
-  "keywords": [
-    "n8n-community-node-package",
-    "n8n",
-    "ai",
-    "llm",
-    "io-intelligence",
-    "io-net",
-    "inference"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/katestover/n8n-nodes-iointelligence#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/katestover/n8n-nodes-iointelligence.git"
-  },
-  "bugs": {
-    "url": "https://github.com/katestover/n8n-nodes-iointelligence/issues"
-  },
-  "author": {
-    "name": "katestover"
-  },
-  "main": "index.js",
-  "n8n": {
-    "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/IoIntelligenceApi.credentials.js"
-    ],
-    "nodes": [
-      "dist/nodes/LmChatIoIntelligence/LmChatIoIntelligence.node.js"
-    ]
-  },
-  "scripts": {
-    "build": "tsc && gulp build:icons",
-    "build:noicons": "tsc",
-    "dev": "tsc --watch",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "prepublishOnly": "npm run build:noicons"
-  },
-  "files": [
-    "dist"
-  ],
-  "peerDependencies": {
-    "n8n-workflow": "*"
-  },
-  "dependencies": {
-    "@langchain/openai": ">=0.3.0"
-  },
-  "devDependencies": {
-    "@types/node": "^22.0.0",
-    "n8n-workflow": "^1.0.0",
-    "typescript": "^5.5.0",
-    "gulp": "^5.0.0"
-  }
+	"name": "n8n-nodes-iointelligence",
+	"version": "0.2.0",
+	"description": "n8n community node for IO Intelligence - use io.net's inference API as an AI model provider in n8n workflows",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"ai",
+		"llm",
+		"io-intelligence",
+		"io-net",
+		"inference"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/katestover/n8n-nodes-iointelligence#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/katestover/n8n-nodes-iointelligence.git"
+	},
+	"bugs": {
+		"url": "https://github.com/katestover/n8n-nodes-iointelligence/issues"
+	},
+	"author": {
+		"name": "katestover"
+	},
+	"main": "index.js",
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/IoIntelligenceApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/LmChatIoIntelligence/LmChatIoIntelligence.node.js"
+		]
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"peerDependencies": {
+		"n8n-workflow": "*",
+		"@langchain/openai": ">=0.3.0"
+	},
+	"devDependencies": {
+		"@langchain/openai": ">=0.3.0",
+		"@n8n/node-cli": "*",
+		"@types/node": "^22.0.0",
+		"eslint": "^9.0.0",
+		"n8n-workflow": "^1.0.0",
+		"prettier": "^3.0.0",
+		"release-it": "^19.0.0",
+		"typescript": "^5.5.0"
+	}
 }

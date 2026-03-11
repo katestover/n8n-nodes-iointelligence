@@ -10,6 +10,8 @@ export class IoIntelligenceApi implements ICredentialType {
 
 	displayName = 'IO Intelligence API';
 
+	icon = { light: 'file:../nodes/LmChatIoIntelligence/iointelligence.svg', dark: 'file:../nodes/LmChatIoIntelligence/iointelligence.svg' } as const;
+
 	documentationUrl = 'https://io.net/docs/reference/ai-models/get-started-with-io-intelligence-api';
 
 	properties: INodeProperties[] = [

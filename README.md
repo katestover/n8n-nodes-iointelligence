@@ -52,6 +52,8 @@ This node provides a **Chat Model** that integrates with n8n's AI workflow syste
 
 - Tested with n8n version 1.x
 - Requires Node.js 18+
+- **Self-hosted n8n**: Fully supported. Install via Community Nodes in the n8n UI.
+- **n8n Cloud**: This node uses `@langchain/openai` as a peer dependency for AI Agent/Chain integration. Cloud support depends on n8n's verification of AI community nodes.
 
 ## Resources
 
